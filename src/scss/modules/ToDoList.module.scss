@@ -1,0 +1,9 @@
+@import "../globals/functions";
+@import "../globals/colors";
+
+.todolist {
+  display: block;
+  border-radius: rem(5px);
+  margin: rem(55px) 0 0;
+  background-color: $light;
+}

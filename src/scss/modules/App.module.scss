@@ -1,0 +1,14 @@
+@import "../globals/functions";
+@import "../globals/colors";
+
+.app {
+  display: block;
+  padding: rem($containerPadding) 0;
+
+  &_container {
+    width: rem($containerWidth);
+    max-width: 100%;
+    padding: 0 rem($containerPadding);
+    margin: 0 auto;
+  }
+}

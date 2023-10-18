@@ -1,0 +1,6 @@
+@import "./variables";
+
+@function rem($value) {
+  $remValue: calc($value / $baseFontSize) + rem;
+  @return $remValue;
+}
