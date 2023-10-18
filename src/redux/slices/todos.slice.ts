@@ -4,6 +4,7 @@ import { RootState } from "../store"
 export type ToDo = {
   id: string
   name: string
+  date: string
   completed: boolean
 }
 
@@ -16,6 +17,7 @@ const initialState: CommonState = {
     {
       id: "st523fasdf",
       name: "name",
+      date: "",
       completed: false
     }
   ]

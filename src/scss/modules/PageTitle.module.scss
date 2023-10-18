@@ -4,5 +4,27 @@
 .page_title {
   display: block;
   text-align: center;
-  color: $dark;
+  margin-bottom: rem(50px);
+
+  &_headline {
+    font-size: rem(45px);
+    color: $caribbean-current;
+    margin: 0 0 rem(25px) 0;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color $transitionTime ease;
+
+      &:hover {
+        color: $teal;
+      }
+    }
+  }
+
+  &_subline {
+    font-size: rem(18px);
+    width: 90%;
+    margin: 0 auto;
+  }
 }

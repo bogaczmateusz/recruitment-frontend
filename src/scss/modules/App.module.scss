@@ -10,5 +10,9 @@
     max-width: 100%;
     padding: 0 rem($containerPadding);
     margin: 0 auto;
+
+    @media (max-width: 570px) {
+      padding: 0 rem(15px);
+    }
   }
 }

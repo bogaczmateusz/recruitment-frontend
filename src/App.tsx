@@ -7,8 +7,22 @@ const App = () => {
     <div className={styles.app}>
       <div className={styles.app_container}>
         <PageTitle
-          headline="ToDo List"
-          intro="Welcome to your ultimate ToDo list for staying organized and productive. Let's get things done!"
+          headline="To-do list"
+          intro={
+            <>
+              Welcome to your ultimate{" "}
+              <span className="text-darkgreen">
+                <strong>To-do list</strong>
+              </span>{" "}
+              for staying organized and productive.
+              <br />
+              <br />
+              Let's get things{" "}
+              <span className="text-darkgreen">
+                <strong>done!</strong>
+              </span>
+            </>
+          }
         />
         <ToDoList />
       </div>

@@ -1,0 +1,12 @@
+@import "../globals/functions";
+@import "../globals/colors";
+
+.separator {
+  padding: rem(25px) rem(15px) rem(15px);
+
+  hr {
+    display: block;
+    border: 0;
+    border-bottom: 1px solid rgba($dark, 0.25);
+  }
+}

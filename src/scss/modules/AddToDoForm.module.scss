@@ -1,0 +1,96 @@
+@import "../globals/functions";
+@import "../globals/colors";
+@import "../globals/fonts";
+
+.addToDoForm {
+  display: block;
+  padding: rem(15px);
+  border-radius: rem(5px);
+
+  &_row {
+    display: flex;
+
+    input {
+      flex: 1;
+    }
+
+    button {
+      width: rem(200px);
+      flex: 0 0 rem(200px);
+    }
+
+    @media (max-width: 570px) {
+      display: block;
+
+      input {
+        border-radius: 0;
+        border-top-left-radius: rem(5px);
+        border-top-right-radius: rem(5px);
+      }
+
+      button {
+        width: 100%;
+        border-radius: 0;
+        border-bottom-left-radius: rem(5px);
+        border-bottom-right-radius: rem(5px);
+      }
+    }
+  }
+
+  &_input {
+    display: block;
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: rem(5px);
+    }
+
+    input {
+      @extend .font-primary;
+      font-weight: 400;
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: rem(10px) rem(20px);
+      margin: 0;
+      box-shadow: none;
+      background-color: $light;
+      outline: 0;
+      border-top-left-radius: rem(5px);
+      border-bottom-left-radius: rem(5px);
+      box-shadow: 0 0 rem(15px) rgba($black, 0.0095);
+    }
+  }
+
+  &_button {
+    @extend .font-primary;
+    font-weight: 600;
+    // text-transform: uppercase;
+    text-align: center;
+    color: $baby-powder;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: rem(12px) rem(20px) rem(10px);
+    border: 0;
+    margin: 0;
+    background-color: $caribbean-current;
+    border-top-right-radius: rem(5px);
+    border-bottom-right-radius: rem(5px);
+    cursor: pointer;
+    transition: background-color $transitionTime ease;
+
+    &:hover {
+      background-color: $teal;
+    }
+  }
+
+  &_error {
+    font-size: rem(14px);
+    color: $error;
+    display: block;
+    margin-top: rem(5px);
+  }
+}

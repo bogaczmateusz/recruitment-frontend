@@ -1,0 +1,19 @@
+@import "../globals/functions";
+@import "../globals/colors";
+
+.taskList {
+  display: block;
+  padding: rem(15px);
+  box-shadow: 0 0 rem(15px) rgba($black, 0.0095);
+  border-radius: rem(5px);
+
+  &_headline {
+    font-size: rem(20px);
+    margin: 0 0 rem(10px);
+  }
+
+  &_inner {
+    padding: rem(15px);
+    background-color: $light;
+  }
+}
