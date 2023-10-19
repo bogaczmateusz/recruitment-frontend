@@ -1,0 +1,89 @@
+@import "../globals/functions";
+@import "../globals/colors";
+
+.taskItem {
+  &_columns {
+    display: flex;
+    align-items: flex-start;
+    gap: rem(15px);
+    width: 100%;
+  }
+
+  &_column {
+    &_name {
+      display: flex;
+      align-items: flex-start;
+      gap: rem(10px);
+      width: calc((550 / 880) * 100%);
+      flex: 0 0 calc((550 / 880) * 100%);
+    }
+
+    &_date {
+      width: calc((150 / 880) * 100%);
+      flex: 0 0 calc((150 / 880) * 100%);
+    }
+
+    &_actions {
+      display: flex;
+      gap: rem(15px);
+      flex: 1;
+    }
+  }
+
+  &_actions {
+    display: flex;
+  }
+
+  &_name {
+    font-size: rem(16px);
+    font-weight: 400;
+    margin: 0;
+
+    @media (max-width: 570px) {
+      font-size: rem(16px);
+    }
+  }
+
+  &_checkbox {
+    cursor: pointer;
+
+    &:hover {
+      span {
+        border-color: $caribbean-current;
+      }
+    }
+
+    input {
+      display: none;
+
+      &:checked + span:before {
+        background-color: $caribbean-current;
+      }
+    }
+
+    span {
+      position: relative;
+      display: block;
+      width: rem(20px);
+      height: rem(20px);
+      border-radius: 100%;
+      border: 1px solid $dark;
+      overflow: hidden;
+      transition: border-color $transitionTime ease;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: rem(10px);
+        height: rem(10px);
+        border-radius: 100%;
+        overflow: hidden;
+        transform: translate3d(-50%, -50%, 0);
+        transition: background-color $transitionTime ease;
+      }
+    }
+  }
+}

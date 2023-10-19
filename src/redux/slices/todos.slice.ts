@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import { RootState } from "../store"
 
 export type ToDo = {
-  id: string
+  id: number
   name: string
   date: string
   completed: boolean
@@ -13,26 +13,19 @@ export interface CommonState {
 }
 
 const initialState: CommonState = {
-  todos: [
-    {
-      id: "st523fasdf",
-      name: "name",
-      date: "",
-      completed: false
-    }
-  ]
+  todos: []
 }
 
 export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
-    setTodos(state, action) {
-      state.todos = action.payload
+    addToDo(state, action) {
+      state.todos.unshift(action.payload)
     }
   }
 })
 
-export const { setTodos } = todosSlice.actions
+export const { addToDo } = todosSlice.actions
 export const selectTodos = (state: RootState) => state.todos.todos
 export default todosSlice.reducer

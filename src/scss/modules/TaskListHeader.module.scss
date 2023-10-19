@@ -1,0 +1,30 @@
+@import "../globals/functions";
+@import "../globals/colors";
+
+.taskListHeader {
+  display: flex;
+  width: 100%;
+  gap: rem(15px);
+  padding-bottom: rem(10px);
+  margin-bottom: rem(15px);
+  border-bottom: 1px solid rgba($dark, 0.15);
+
+  &_column {
+    &_name {
+      font-weight: 500;
+      width: calc((550 / 880) * 100%);
+      flex: 0 0 calc((550 / 880) * 100%);
+    }
+
+    &_date {
+      font-weight: 500;
+      width: calc((150 / 880) * 100%);
+      flex: 0 0 calc((150 / 880) * 100%);
+    }
+
+    &_actions {
+      font-weight: 500;
+      flex: 1;
+    }
+  }
+}

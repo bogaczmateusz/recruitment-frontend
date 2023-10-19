@@ -1,4 +1,4 @@
-import styles from "../../../scss/modules/Separator.module.scss"
+import styles from "../../scss/modules/Separator.module.scss"
 
 const Separator = () => {
   return (

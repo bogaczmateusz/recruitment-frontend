@@ -1,14 +1,22 @@
 import { useFormik } from "formik"
-import styles from "../../../scss/modules/AddToDoForm.module.scss"
 import { AddToDoValidator } from "../../../validators/AddToDo.validator"
 import { AddToDoRequest } from "../../../types/AddToDoRequest.dto"
 
-const AddToDoForm = () => {
+import styles from "../../../scss/modules/AddToDoForm.module.scss"
+
+type Props = {
+  // eslint-disable-next-line
+  handleAddToDo: ({ name }: { name: string }) => void
+}
+
+const AddToDoForm = ({ handleAddToDo }: Props) => {
   const formik = useFormik<AddToDoRequest>({
     initialValues: {
       taskname: ""
     },
     onSubmit: (values, actions) => {
+      handleAddToDo({ name: values.taskname })
+
       actions.setSubmitting(false)
       actions.resetForm({
         values: {
