@@ -11,19 +11,19 @@
 
   &_column {
     &_name {
-      font-weight: 500;
+      font-weight: 300;
       width: calc((550 / 880) * 100%);
       flex: 0 0 calc((550 / 880) * 100%);
     }
 
     &_date {
-      font-weight: 500;
-      width: calc((150 / 880) * 100%);
-      flex: 0 0 calc((150 / 880) * 100%);
+      font-weight: 300;
+      width: calc((225 / 880) * 100%);
+      flex: 0 0 calc((225 / 880) * 100%);
     }
 
     &_actions {
-      font-weight: 500;
+      font-weight: 300;
       flex: 1;
     }
   }

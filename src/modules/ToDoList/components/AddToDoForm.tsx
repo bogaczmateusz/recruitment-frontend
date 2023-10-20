@@ -1,4 +1,5 @@
 import { useFormik } from "formik"
+import { BiListPlus } from "react-icons/bi"
 import { AddToDoValidator } from "../../../validators/AddToDo.validator"
 import { AddToDoRequest } from "../../../types/AddToDoRequest.dto"
 
@@ -41,6 +42,7 @@ const AddToDoForm = ({ handleAddToDo }: Props) => {
               value={formik.values.taskname}
             />
             <button type="submit" className={styles.addToDoForm_button}>
+              <BiListPlus color="#ffffff" size="25" />
               Add task
             </button>
           </div>

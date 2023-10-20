@@ -1,6 +1,12 @@
+import toast from "react-hot-toast"
 import { useDispatch, useSelector } from "react-redux"
 import { AppDispatch } from "../redux/store"
-import { selectTodos, addToDo } from "../redux/slices/todos.slice"
+import {
+  selectTodos,
+  addToDo,
+  removeToDo,
+  completeToDo
+} from "../redux/slices/todos.slice"
 import { ToDo } from "../redux/slices/todos.slice"
 
 const useTodos = () => {
@@ -34,14 +40,39 @@ const useTodos = () => {
         completed: false
       })
     )
+    toast.success("Task added.")
   }
 
   // Remove todo
   const removeTodo = ({ id }: { id: number }) => {
-    console.log(id)
+    dispatch(removeToDo(id))
+    toast.success("Task removed.")
   }
 
-  return { todos, getIncompletedTodos, getCompletedTodos, addTodo, removeTodo }
+  // Complete todo
+  const completeTodo = ({
+    id,
+    completed
+  }: {
+    id: number
+    completed: boolean
+  }) => {
+    dispatch(completeToDo(id))
+    if (!completed) {
+      toast.success("Task completed.")
+    } else {
+      toast.success("Task restored.")
+    }
+  }
+
+  return {
+    todos,
+    getIncompletedTodos,
+    getCompletedTodos,
+    addTodo,
+    removeTodo,
+    completeTodo
+  }
 }
 
 export default useTodos
