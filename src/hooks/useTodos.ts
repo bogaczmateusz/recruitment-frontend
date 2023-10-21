@@ -52,6 +52,7 @@ const useTodos = () => {
   // Edit todo
   const editTodo = ({ id, name }: { id: number; name: string }) => {
     dispatch(editToDo({ id: id, name: name }))
+    toast.success("Task edited.")
   }
 
   // Remove todo
