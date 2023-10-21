@@ -1,5 +1,7 @@
+import { useState } from "react"
 import useTodos from "../../../hooks/useTodos"
 import { BiSolidCheckCircle, BiTrash, BiEditAlt } from "react-icons/bi"
+import EditToDoForm from "./EditToDoForm"
 
 import styles from "../../../scss/modules/TaskItem.module.scss"
 
@@ -11,7 +13,8 @@ type Props = {
 }
 
 const TaskItem = ({ id, name, date, completed }: Props) => {
-  const { removeTodo, completeTodo } = useTodos()
+  const [edit, setEdit] = useState<boolean>(false)
+  const { removeTodo, completeTodo, editTodo } = useTodos()
 
   const handleRemove = (id: number) => {
     removeTodo({ id: id })
@@ -21,8 +24,9 @@ const TaskItem = ({ id, name, date, completed }: Props) => {
     completeTodo({ id: id, completed: completed })
   }
 
-  const handleEdit = (id: number) => {
-    console.log(`Edit: ${id}`)
+  const handleEdit = (id: number, name: string) => {
+    editTodo({ id: id, name: name })
+    setEdit(false)
   }
 
   return (
@@ -39,29 +43,45 @@ const TaskItem = ({ id, name, date, completed }: Props) => {
               <BiSolidCheckCircle color="#0d5c63" />
             </span>
           </label>
-          <h3
-            className={
-              !completed ? styles.taskItem_name : styles.taskItem_name_completed
-            }
-          >
-            {name}
-          </h3>
+          <div>
+            {!edit ? (
+              <h3
+                className={
+                  !completed
+                    ? styles.taskItem_name
+                    : styles.taskItem_name_completed
+                }
+              >
+                <span onClick={() => setEdit(true)}>{name}</span>
+              </h3>
+            ) : (
+              <EditToDoForm
+                id={id}
+                name={name}
+                handleEdit={handleEdit}
+                handleCancel={setEdit}
+              />
+            )}
+          </div>
         </div>
-        <div className={styles.taskItem_column_date}>{date}</div>
+        <div className={styles.taskItem_column_date}>
+          <span className={styles.taskItem_column_date_label}>
+            Created at:{" "}
+          </span>
+          {date}
+        </div>
         <div className={styles.taskItem_column_actions}>
-          {!completed && (
-            <button
-              className={styles.taskItem_button}
-              onClick={() => handleEdit(id)}
-            >
-              <BiEditAlt color="#0d5c63" size="20" />
-            </button>
-          )}
+          <button
+            className={styles.taskItem_button}
+            onClick={() => setEdit((prevState) => !prevState)}
+          >
+            <BiEditAlt color="#0d5c63" size="20" />
+          </button>
           <button
             className={styles.taskItem_button}
             onClick={() => handleRemove(id)}
           >
-            <BiTrash color="#ca1212" size="20" />
+            <BiTrash color="#cc4949" size="20" />
           </button>
         </div>
       </div>

@@ -30,7 +30,7 @@ const AddToDoForm = ({ handleAddToDo }: Props) => {
 
   return (
     <div className={styles.addToDoForm}>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} data-testid="addtodo-form">
         <div className={styles.addToDoForm_input}>
           <label htmlFor="taskname">Provide your task name:</label>
           <div className={styles.addToDoForm_row}>

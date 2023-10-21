@@ -6,6 +6,10 @@
   text-align: center;
   margin-bottom: rem(50px);
 
+  @media (max-width: 860px) {
+    margin-bottom: rem(25px);
+  }
+
   &_headline {
     font-size: rem(45px);
     color: $caribbean-current;

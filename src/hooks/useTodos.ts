@@ -5,7 +5,8 @@ import {
   selectTodos,
   addToDo,
   removeToDo,
-  completeToDo
+  completeToDo,
+  editToDo
 } from "../redux/slices/todos.slice"
 import { ToDo } from "../redux/slices/todos.slice"
 
@@ -18,19 +19,24 @@ const useTodos = () => {
   // Get incompleted todos
   const getIncompletedTodos = () => {
     const incompleted: ToDo[] = todos.filter((todo: ToDo) => !todo.completed)
-    return incompleted
+    return incompleted.sort((a, b) => b.id - a.id)
   }
 
   // Get completed todos
   const getCompletedTodos = () => {
     const completed: ToDo[] = todos.filter((todo: ToDo) => todo.completed)
-    return completed
+    return completed.sort((a, b) => b.id - a.id)
   }
 
   // Add todo
   const addTodo = ({ name }: { name: string }) => {
     const timestamp = Date.now()
-    const dateFormatted = new Date(timestamp).toLocaleDateString()
+    const dateFormatted = new Date(timestamp).toLocaleDateString("en-US", {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    })
 
     dispatch(
       addToDo({
@@ -41,6 +47,11 @@ const useTodos = () => {
       })
     )
     toast.success("Task added.")
+  }
+
+  // Edit todo
+  const editTodo = ({ id, name }: { id: number; name: string }) => {
+    dispatch(editToDo({ id: id, name: name }))
   }
 
   // Remove todo
@@ -71,7 +82,8 @@ const useTodos = () => {
     getCompletedTodos,
     addTodo,
     removeTodo,
-    completeTodo
+    completeTodo,
+    editTodo
   }
 }
 

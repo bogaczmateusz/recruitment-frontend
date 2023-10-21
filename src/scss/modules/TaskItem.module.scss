@@ -7,6 +7,10 @@
     align-items: flex-start;
     gap: rem(15px);
     width: 100%;
+
+    @media (max-width: 860px) {
+      display: block;
+    }
   }
 
   &_column {
@@ -16,33 +20,72 @@
       gap: rem(10px);
       width: calc((550 / 880) * 100%);
       flex: 0 0 calc((550 / 880) * 100%);
+
+      @media (max-width: 860px) {
+        width: 100%;
+        flex: 0 0 100%;
+      }
+
+      > label {
+        width: rem(20px);
+        flex: 0 0 rem(20px);
+      }
+
+      > div {
+        flex: 1;
+      }
     }
 
     &_date {
+      padding-top: rem(5px);
       width: calc((225 / 880) * 100%);
       flex: 0 0 calc((225 / 880) * 100%);
+
+      &_label {
+        display: none;
+      }
+
+      @media (max-width: 860px) {
+        font-size: rem(14px);
+        width: 100%;
+        margin-top: rem(5px);
+
+        &_label {
+          display: inline;
+        }
+      }
     }
 
     &_actions {
       display: flex;
       gap: rem(5px);
+      padding-top: rem(5px);
       flex: 1;
+
+      @media (max-width: 860px) {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: rem(5px);
+      }
     }
   }
 
   &_actions {
     display: flex;
+    justify-content: flex-end;
   }
 
   &_name {
     font-size: rem(16px);
     font-weight: 400;
     margin: 0;
+    padding: rem(5px);
 
     &_completed {
       font-size: rem(16px);
       font-weight: 400;
       margin: 0;
+      padding: rem(5px);
       opacity: 0.75;
       text-decoration: line-through;
     }
@@ -74,6 +117,7 @@
       display: block;
       width: rem(20px);
       height: rem(20px);
+      margin-top: rem(4px);
       border-radius: 100%;
       border: 1px solid $dark;
       overflow: hidden;
