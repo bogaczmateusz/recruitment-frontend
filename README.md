@@ -1,9 +1,9 @@
-Screenshot:
-![alt text](Screenshot.png)
-
 # Live preview
 
 [https://todo-app-five-sage.vercel.app/](https://todo-app-five-sage.vercel.app/).
+
+# Screenshot
+![alt text](Screenshot.png)
 
 # Getting Started with Create React App
 
