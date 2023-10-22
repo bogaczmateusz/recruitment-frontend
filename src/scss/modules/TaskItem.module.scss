@@ -150,6 +150,7 @@
   &_button {
     border: 0;
     cursor: pointer;
+    background-color: transparent;
     transition: opacity $transitionTime ease;
 
     svg {
